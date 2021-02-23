@@ -3,24 +3,25 @@ package entities
 import (
 	"time"
 	"fmt"
+	"github.com/lib/pq"
 )
 
 type Product struct {
 	ID int64 `json:"id"`
 	Title string `json:"title,omitempty"`
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	Image string `json:"image,omitempty"`
 	Price float64 `json:"price,omitempty"`
-	AvailableSizes []string `json:"availableSizes,omitempty"`
-	StartDate time.Time `json:"start_date,omitempty"`
-	EndDate time.Time `json:"end_date,omitempty"`
+	AvailableSizes pq.StringArray  `json:"availableSizes,omitempty" gorm:"type:text[]"`
+	StartDate time.Time `json:"start_date,omitempty" gorm:"default:CURRENT_TIMESTAMP"`
+	EndDate *time.Time `json:"end_date,omitempty"`
 	HistoryID int64 `json:"history_id"`
 }
 
-func NewProduct(title string, description string, image string, price float64, availableSizes []string) (*Product, error) {
+func NewProduct(title string, description string, image string, price float64, availableSizes pq.StringArray) (*Product, error) {
 	p := &Product{
 		Title: title,
-		Description: description,
+		Description: &description,
 		Image: image,
 		Price: price,
 		AvailableSizes: availableSizes,

@@ -1,0 +1,190 @@
+landing-back 2021/02/23 14:08:43 listen tcp: address 2021: missing port in address
+landing-back 2021/02/23 14:09:57 listen tcp: address 2021: missing port in address
+landing-back 2021/02/23 14:11:19 Method: GET
+landing-back 2021/02/23 14:11:19 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:11:19 Total Time For Execution: 5ms
+
+landing-back 2021/02/23 14:11:52 Method: GET
+landing-back 2021/02/23 14:11:52 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:11:52 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:02 Method: GET
+landing-back 2021/02/23 14:13:02 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:13:03 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:03 Method: GET
+landing-back 2021/02/23 14:13:03 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:13:03 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:18 Method: GET
+landing-back 2021/02/23 14:13:18 RequestURI: /api/v1/product/sss
+landing-back 2021/02/23 14:13:18 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:25 Method: GET
+landing-back 2021/02/23 14:13:25 RequestURI: /api/v1/product/%22sss%22
+landing-back 2021/02/23 14:13:25 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:37 Method: GET
+landing-back 2021/02/23 14:13:37 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:13:37 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:37 Method: GET
+landing-back 2021/02/23 14:13:37 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:13:37 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:54 Method: GET
+landing-back 2021/02/23 14:13:54 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:13:54 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:13:54 Method: GET
+landing-back 2021/02/23 14:13:54 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:13:54 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:14:22 Method: GET
+landing-back 2021/02/23 14:14:22 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:14:22 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:14:22 Method: GET
+landing-back 2021/02/23 14:14:22 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:14:22 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:21:20 Method: GET
+landing-back 2021/02/23 14:21:20 RequestURI: /api/v1/product/sssss
+landing-back 2021/02/23 14:21:20 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:21:40 Method: GET
+landing-back 2021/02/23 14:21:40 RequestURI: /api/v1/product:gaziz
+landing-back 2021/02/23 14:21:40 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:21:44 Method: GET
+landing-back 2021/02/23 14:21:44 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:21:44 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:21:55 Method: GET
+landing-back 2021/02/23 14:21:55 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:21:55 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:21:55 Method: GET
+landing-back 2021/02/23 14:21:55 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:21:55 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:22:20 Method: GET
+landing-back 2021/02/23 14:22:20 RequestURI: /api/v1/product/sssss
+landing-back 2021/02/23 14:22:20 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:22:27 Method: GET
+landing-back 2021/02/23 14:22:27 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:22:27 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:22:27 Method: GET
+landing-back 2021/02/23 14:22:27 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:22:27 Total Time For Execution: 997.3µs
+
+landing-back 2021/02/23 14:22:35 Method: GET
+landing-back 2021/02/23 14:22:35 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:22:35 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:22:35 Method: GET
+landing-back 2021/02/23 14:22:35 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:22:35 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:27:19 Method: GET
+landing-back 2021/02/23 14:27:19 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:27:19 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:27:19 Method: GET
+landing-back 2021/02/23 14:27:19 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:27:19 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:57:42 Method: GET
+landing-back 2021/02/23 14:57:42 RequestURI: /api/v1/product/
+landing-back 2021/02/23 14:57:42 Total Time For Execution: 1.0257ms
+
+landing-back 2021/02/23 14:57:42 Method: GET
+landing-back 2021/02/23 14:57:42 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:57:42 Total Time For Execution: 0s
+
+landing-back 2021/02/23 14:58:53 Method: POST
+landing-back 2021/02/23 14:58:53 RequestURI: /api/v1/product
+landing-back 2021/02/23 14:58:53 Total Time For Execution: 1ms
+
+landing-back 2021/02/23 15:01:39 Method: POST
+landing-back 2021/02/23 15:01:39 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:01:39 Total Time For Execution: 1.0008ms
+
+landing-back 2021/02/23 15:07:19 Method: POST
+landing-back 2021/02/23 15:07:19 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:07:19 Total Time For Execution: 999.9µs
+
+landing-back 2021/02/23 15:08:23 Method: POST
+landing-back 2021/02/23 15:08:23 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:08:23 Total Time For Execution: 17.9991ms
+
+landing-back 2021/02/23 15:29:45 Method: POST
+landing-back 2021/02/23 15:29:45 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:29:45 Total Time For Execution: 8.3505ms
+
+landing-back 2021/02/23 15:40:00 Method: POST
+landing-back 2021/02/23 15:40:00 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:40:00 Total Time For Execution: 8.0553ms
+
+landing-back 2021/02/23 15:42:45 Method: POST
+landing-back 2021/02/23 15:42:45 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:42:45 Total Time For Execution: 4.6008425s
+
+landing-back 2021/02/23 15:47:32 Method: POST
+landing-back 2021/02/23 15:47:32 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:47:32 Total Time For Execution: 1.9994ms
+
+landing-back 2021/02/23 15:47:44 Method: POST
+landing-back 2021/02/23 15:47:44 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:47:44 Total Time For Execution: 999.6µs
+
+landing-back 2021/02/23 15:56:06 Method: POST
+landing-back 2021/02/23 15:56:06 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:06 Total Time For Execution: 2.9992ms
+
+landing-back 2021/02/23 15:56:16 Method: POST
+landing-back 2021/02/23 15:56:16 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:16 Total Time For Execution: 2.0005ms
+
+landing-back 2021/02/23 15:56:27 Method: POST
+landing-back 2021/02/23 15:56:27 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:27 Total Time For Execution: 2.0009ms
+
+landing-back 2021/02/23 15:56:36 Method: POST
+landing-back 2021/02/23 15:56:36 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:36 Total Time For Execution: 1.9997ms
+
+landing-back 2021/02/23 15:56:42 Method: POST
+landing-back 2021/02/23 15:56:43 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:43 Total Time For Execution: 1.0012ms
+
+landing-back 2021/02/23 15:56:51 Method: POST
+landing-back 2021/02/23 15:56:51 RequestURI: /api/v1/product
+landing-back 2021/02/23 15:56:51 Total Time For Execution: 999µs
+
+landing-back 2021/02/23 16:05:10 Method: GET
+landing-back 2021/02/23 16:05:10 RequestURI: /api/v1/product/
+landing-back 2021/02/23 16:05:10 Total Time For Execution: 0s
+
+landing-back 2021/02/23 16:05:10 Method: GET
+landing-back 2021/02/23 16:05:10 RequestURI: /api/v1/product
+landing-back 2021/02/23 16:05:10 Total Time For Execution: 11.9971ms
+
+landing-back 2021/02/23 16:05:18 Method: GET
+landing-back 2021/02/23 16:05:18 RequestURI: /api/v1/product/
+landing-back 2021/02/23 16:05:18 Total Time For Execution: 0s
+
+landing-back 2021/02/23 16:05:18 Method: GET
+landing-back 2021/02/23 16:05:18 RequestURI: /api/v1/product
+landing-back 2021/02/23 16:05:18 Total Time For Execution: 4.042ms
+
+landing-back 2021/02/23 16:06:00 Method: GET
+landing-back 2021/02/23 16:06:00 RequestURI: /api/v1/product/
+landing-back 2021/02/23 16:06:00 Total Time For Execution: 0s
+
+landing-back 2021/02/23 16:06:00 Method: GET
+landing-back 2021/02/23 16:06:00 RequestURI: /api/v1/product
+landing-back 2021/02/23 16:06:00 Total Time For Execution: 2.0013ms
+

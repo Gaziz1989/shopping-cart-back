@@ -1,8 +1,6 @@
 package repositories
 
 import (
-	// "fmt"
-	// "context"
 	"github.com/jinzhu/gorm"
 	"landing-back/entities"
 )
@@ -28,12 +26,12 @@ func(r *ProductPSQL) Create(i *entities.Product) (*entities.Product, error) {
 	if tx.Error != nil {
 		return i, tx.Error
 	}
-	err := tx.Table("public.product").Create(i).Error
+	err := tx.Table("public.products").Create(i).Error
 	if err != nil {
 		tx.Rollback()
 		return i, err
 	}
-	err = tx.Table("public.product").Model(i).Update("history_id", i.ID).Error
+	err = tx.Table("public.products").Model(i).Update("history_id", i.ID).Error
 	if err != nil {
 		tx.Rollback()
 		return i, err
@@ -49,14 +47,14 @@ func(r *ProductPSQL) Create(i *entities.Product) (*entities.Product, error) {
 func(r *ProductPSQL) List() ([]entities.Product, error) {
 	products := []entities.Product{}
 	err := r.DB.
-		Table("public.product").
+		Table("public.products").
 		Where(`end_date ISNULL`).
 		Select(`id, 
 		title, 
 		description, 
 		image, 
 		price, 
-		availableSizes,
+		available_sizes,
 		start_date,
 		end_date,
 		history_id`).
