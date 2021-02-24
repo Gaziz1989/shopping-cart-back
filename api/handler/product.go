@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"fmt"
 	"encoding/json"
+	"strconv"
 
 	"github.com/julienschmidt/httprouter"
 
@@ -14,7 +15,7 @@ func listProducts(service product.UseCase) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		products, err := service.ListProducts()
 		if err != nil {
-			fmt.Fprintf(w, "%+v\n", err)
+			http.Error(w, err.Error(), 400)
 			return
 		}
 
@@ -39,13 +40,13 @@ func addProduct(service product.UseCase) httprouter.Handle {
 		}{}
 		err := json.NewDecoder(r.Body).Decode(&input)
 		if err != nil {
-			fmt.Fprintf(w, "%+v\n", err)
+			http.Error(w, err.Error(), 400)
 			return
 		}
 
 		newProduct, err := service.CreateProduct(input.Title,input.Description,input.Image,input.Price,input.AvailableSizes)
 		if err != nil {
-			fmt.Fprintf(w, "%+v\n", err)
+			http.Error(w, err.Error(), 400)
 			return
 		}
 
@@ -59,8 +60,30 @@ func addProduct(service product.UseCase) httprouter.Handle {
 	}
 }
 
+func deleteProduct(service product.UseCase) httprouter.Handle {
+	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+		fmt.Printf("%+v\n", ps.ByName("id"))
+		id, err := strconv.ParseInt(ps.ByName("id"), 10, 64)
+		if err != nil {
+			http.Error(w, err.Error(), 400)
+		}
+		err = service.DeleteProduct(id)
+		if err != nil {
+			http.Error(w, err.Error(), 400)
+		}
+
+		data := map[string]interface{}{}
+		data["message"] = map[string]interface{}{
+			"status": true,
+			"text":   "OK",
+		}
+		json.NewEncoder(w).Encode(data)
+	}
+}
+
 //MakeProductHandlers make url handlers
 func MakeProductHandlers(router *httprouter.Router, service product.UseCase) {
 	router.GET("/api/v1/product", listProducts(service))
 	router.POST("/api/v1/product", addProduct(service))
+	router.DELETE("/api/v1/product/:id", deleteProduct(service))
 }

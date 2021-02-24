@@ -17,6 +17,15 @@ func NewService(r Repository) *Service {
 	}
 }
 
+//DeleteProduct delete a product
+func (s *Service) DeleteProduct(id int64) error {
+	// err := s.repo.Delete(id)
+	// if err != nil {
+	// 	return err
+	// }
+	return s.repo.Delete(id)
+}
+
 //CreateBook create a product
 func (s *Service) CreateProduct(title string, description string, image string, price float64, availableSizes []string) (*entities.Product, error) {
 	b, err := entities.NewProduct(title, description, image, price, availableSizes)

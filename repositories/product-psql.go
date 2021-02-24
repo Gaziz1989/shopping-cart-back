@@ -1,11 +1,14 @@
 package repositories
 
 import (
+	"time"
+
 	"github.com/jinzhu/gorm"
 	"landing-back/entities"
 )
 
 type ProductRepository interface {
+	Delete(id int64) error
 	Create(i *entities.Product) (*entities.Product, error)
 	List() ([]entities.Product, error)
 }
@@ -19,6 +22,24 @@ func NewPostgreSQLRepository(db *gorm.DB) ProductRepository {
 	return &ProductPSQL{
 		DB: db,
 	}
+}
+
+func (r *ProductPSQL) Delete(id int64) error {
+	tx := r.DB.Begin()
+	if tx.Error != nil {
+		return tx.Error
+	}
+	err := tx.Table("public.products").Where("id = ?", id).Update("end_date", time.Now()).Error
+	if err != nil {
+		tx.Rollback()
+		return err
+	}
+	err = tx.Commit().Error
+	if err != nil {
+		tx.Rollback()
+		return err
+	}
+	return nil 
 }
 
 func(r *ProductPSQL) Create(i *entities.Product) (*entities.Product, error) {

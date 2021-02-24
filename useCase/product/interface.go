@@ -12,6 +12,7 @@ type Reader interface {
 //Writer book writer
 type Writer interface {
 	Create(i *entities.Product) (*entities.Product, error)
+	Delete(id int64) error
 }
 
 //Repository interface
@@ -27,5 +28,5 @@ type UseCase interface {
 	ListProducts() ([]entities.Product, error)
 	CreateProduct(title string, description string, image string, price float64, availableSizes []string) (*entities.Product, error)
 	// UpdateProduct(e *entities.Product) error
-	// DeleteProduct(id int64) error
+	DeleteProduct(id int64) error
 }
