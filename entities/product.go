@@ -4,6 +4,7 @@ import (
 	"time"
 	"fmt"
 	"github.com/lib/pq"
+	"encoding/json"
 )
 
 type Product struct {
@@ -48,4 +49,20 @@ func (p *Product) Validate() error {
 		return fmt.Errorf("AvailableSizes is empty")
 	}
 	return nil
+}
+
+func (u *Product) String() string {
+	s, err := u.PrettyPrint()
+	if err != nil {
+		return fmt.Sprintf("Error: %s", err.Error())
+	}
+	return s
+}
+
+func (u *Product) PrettyPrint() (string, error) {
+	b, err := json.MarshalIndent(u, "", "  ")
+	if err != nil {
+		return "", err
+	}
+	return string(b), nil
 }

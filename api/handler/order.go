@@ -8,12 +8,13 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 
-	"landing-back/useCase/product"
+	"landing-back/useCase/order"
+	"landing-back/entities"
 )
 
-func listProducts(service product.UseCase) httprouter.Handle {
+func listOrders(service order.UseCase) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-		products, err := service.ListProducts()
+		orders, err := service.ListOrders()
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 			return
@@ -23,28 +24,22 @@ func listProducts(service product.UseCase) httprouter.Handle {
 		data["message"] = map[string]interface{}{
 			"status": true,
 			"text":   "OK",
-			"products": products,
+			"orders": orders,
 		}
 		json.NewEncoder(w).Encode(data)
 	}
 }
 
-func addProduct(service product.UseCase) httprouter.Handle {
+func addOrder(service order.UseCase) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-		input := struct{
-			Title string `json:"title,omitempty"`
-			Description string `json:"description,omitempty"`
-			Image string `json:"image,omitempty"`
-			Price float64 `json:"price,omitempty"`
-			AvailableSizes []string `json:"availableSizes,omitempty"`
-		}{}
+		input := entities.Order{}
 		err := json.NewDecoder(r.Body).Decode(&input)
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 			return
 		}
 
-		newProduct, err := service.CreateProduct(input.Title,input.Description,input.Image,input.Price,input.AvailableSizes)
+		err = service.CreateOrder(input)
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 			return
@@ -54,19 +49,19 @@ func addProduct(service product.UseCase) httprouter.Handle {
 		data["message"] = map[string]interface{}{
 			"status": true,
 			"text":   "OK",
-			"product": newProduct,
+			"newOrder": input,
 		}
 		json.NewEncoder(w).Encode(data)
 	}
 }
 
-func deleteProduct(service product.UseCase) httprouter.Handle {
+func deleteOrder(service order.UseCase) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		id, err := strconv.ParseInt(ps.ByName("id"), 10, 64)
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 		}
-		err = service.DeleteProduct(id)
+		err = service.DeleteOrder(id)
 		if err != nil {
 			http.Error(w, err.Error(), 400)
 		}
@@ -80,9 +75,9 @@ func deleteProduct(service product.UseCase) httprouter.Handle {
 	}
 }
 
-//MakeProductHandlers make url handlers
-func MakeProductHandlers(router *httprouter.Router, service product.UseCase) {
-	router.GET("/api/v1/product", listProducts(service))
-	router.POST("/api/v1/product", addProduct(service))
-	router.DELETE("/api/v1/product/:id", deleteProduct(service))
+//MakeOrderHandlers make url handlers
+func MakeOrderHandlers(router *httprouter.Router, service order.UseCase) {
+	router.GET("/api/v1/order", listOrders(service))
+	router.POST("/api/v1/order", addOrder(service))
+	router.DELETE("/api/v1/order/:id", deleteOrder(service))
 }

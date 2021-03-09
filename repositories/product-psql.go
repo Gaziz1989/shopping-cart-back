@@ -18,7 +18,7 @@ type ProductPSQL struct {
 }
 
 // New FireStore repository
-func NewPostgreSQLRepository(db *gorm.DB) ProductRepository {
+func NewProductPSQLRepository(db *gorm.DB) ProductRepository {
 	return &ProductPSQL{
 		DB: db,
 	}

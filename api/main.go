@@ -14,6 +14,8 @@ import (
 
 	"landing-back/repositories"
 	"landing-back/useCase/product"
+	"landing-back/useCase/order"
+
 	"landing-back/logger"
 	"landing-back/api/handler"
 	// "landing-back/entities"
@@ -71,18 +73,22 @@ func main() {
 	// 	fmt.Println(defaultTableName)
 	// 	return "public." + defaultTableName
 	// }
-	// db.Debug().AutoMigrate(&entities.Product{}) //Database migration
+	// db.Debug().AutoMigrate(&entities.Order{}, &entities.OrderProducts{}) //Database migration
+
 	fmt.Println("PostgreSQL connection established!")
 
-	productRepo := repositories.NewPostgreSQLRepository(db)
+	productRepo := repositories.NewProductPSQLRepository(db)
 	productService := product.NewService(productRepo)
 
+	orderRepo := repositories.NewOrderPSQLRepository(db)
+	orderService := order.NewService(orderRepo)
 
 	//Creating http routes
 	router := httprouter.New()
 	router.HandleOPTIONS = true
 
 	handler.MakeProductHandlers(router, productService)
+	handler.MakeOrderHandlers(router, orderService)
 
 	err = http.ListenAndServe(os.Getenv("serverPort"), &Server{router})
 	if err != nil {
