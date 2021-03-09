@@ -71,6 +71,7 @@ func(r *OrderPSQL) Create(i *entities.Order) error {
 		op := entities.OrderProducts{
 			OrderID: i.HistoryID,
 			ProductID: i.OrderProducts[p].HistoryID,
+			Count: i.OrderProducts[p].Count,
 		}
 
 		err := tx.Table("public.order_products").Create(&op).Error
@@ -121,7 +122,8 @@ func(r *OrderPSQL) List() ([]entities.Order, error) {
 			p.available_sizes,
 			p.start_date,
 			p.end_date,
-			p.history_id
+			p.history_id,
+			op.count
 			from public.order_products as op
 			left join public.products as p
 			on op.product_id = p.history_id
@@ -142,6 +144,7 @@ func(r *OrderPSQL) List() ([]entities.Order, error) {
 			var StartDate time.Time
 			var EndDate *time.Time
 			var HistoryID int64
+			var Count int64
 			rows.Scan(&ID,
 				&Title,
 				&Description,
@@ -150,18 +153,26 @@ func(r *OrderPSQL) List() ([]entities.Order, error) {
 				&AvailableSizes,
 				&StartDate,
 				&EndDate,
-				&HistoryID)
-			product := entities.Product{
-				ID: ID,
-				Title: Title,
-				Description: Description,
-				Image: Image,
-				Price: Price,
-				AvailableSizes: AvailableSizes,
-				StartDate: StartDate,
-				EndDate: EndDate,
-				HistoryID: HistoryID,
-			}
+				&HistoryID,
+				&Count)
+				ss := entities.Product{
+						ID: ID,
+						Title: Title,
+						Description: Description,
+						Image: Image,
+						Price: Price,
+						AvailableSizes: AvailableSizes,
+						StartDate: StartDate,
+						EndDate: EndDate,
+						HistoryID: HistoryID,
+					}
+				product := struct {
+					entities.Product
+					Count int64 `json:"count,omitempty"`
+				}{
+					ss,
+					Count,
+				}
 			orders[o].OrderProducts = append(orders[o].OrderProducts, product)
 		}
 	}

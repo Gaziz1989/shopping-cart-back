@@ -16,7 +16,10 @@ type Order struct {
 	EndDate *time.Time `json:"end_date,omitempty"`
 	HistoryID int64 `json:"history_id"`
 	
-	OrderProducts []Product `json:"cartItems,omitempty" gorm:"-"`
+	OrderProducts []struct{
+		Product
+		Count int64 `json:"count,omitempty"`
+	} `json:"cartItems,omitempty" gorm:"-"`
 }
 
 type OrderProducts struct {
@@ -26,6 +29,7 @@ type OrderProducts struct {
 	StartDate time.Time `json:"start_date,omitempty" gorm:"default:CURRENT_TIMESTAMP"`
 	EndDate *time.Time `json:"end_date,omitempty"`
 	HistoryID int64 `json:"history_id"`
+	Count int64 `json:"history_id,omitempty"`
 }
 
 func NewOrder(email string, name string, address string, total float64) (*Order, error) {
