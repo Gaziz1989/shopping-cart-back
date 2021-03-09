@@ -3184,3 +3184,19 @@ landing-back 2021/03/09 19:03:39 Method: GET
 landing-back 2021/03/09 19:03:39 RequestURI: /api/v1/order
 landing-back 2021/03/09 19:03:39 Total Time For Execution: 2.0011ms
 
+landing-back 2021/03/09 19:05:43 Method: GET
+landing-back 2021/03/09 19:05:43 RequestURI: /api/v1/product
+landing-back 2021/03/09 19:05:43 Total Time For Execution: 1.9972ms
+
+landing-back 2021/03/09 19:05:57 Method: POST
+landing-back 2021/03/09 19:05:57 RequestURI: /api/v1/order
+landing-back 2021/03/09 19:05:57 Total Time For Execution: 5.0039ms
+
+landing-back 2021/03/09 19:06:32 Method: GET
+landing-back 2021/03/09 19:06:32 RequestURI: /api/v1/order/
+landing-back 2021/03/09 19:06:32 Total Time For Execution: 0s
+
+landing-back 2021/03/09 19:06:32 Method: GET
+landing-back 2021/03/09 19:06:32 RequestURI: /api/v1/order
+landing-back 2021/03/09 19:06:32 Total Time For Execution: 1.0024ms
+
